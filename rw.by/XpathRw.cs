@@ -24,6 +24,6 @@ namespace rw.by
 		internal const string CHOOSE_EVENING = "//span[@data-filter-value='from_evening']";
 		internal const string CHOOSE_NIGHT = "//span[@data-filter-value='from_night']";
 
-		internal const string CLOSE_ONLINE_CONSULTANT = "/html/body/div[13]/div/div[1]/div[1]/svg/use";
+		internal const string CLOSE_ONLINE_CONSULTANT = "//div[@class='webim-invitation-header webim-custom-style-invitation-header']/child::div[@class='webim-actions']";
 	}
 }

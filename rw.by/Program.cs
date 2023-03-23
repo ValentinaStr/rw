@@ -12,7 +12,7 @@ namespace rw.by
 			HomePage home = new HomePage(driver);
 			home.InputDepartureStation("Минск");
 			home.InputDestinationStation("Брест");
-			home.ChooseDayNextAfterNextMonth("100");
+			home.ChooseDayCurrentMonth("28");
 			//home.InputDateOfTravel("25.03.2023");
 			TrainsList listOfTrain =  home.СonfirmSelection();
 			Thread.Sleep(1000);

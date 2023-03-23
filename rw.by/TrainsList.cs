@@ -10,22 +10,26 @@ namespace rw.by
 
 		public void СhooseMorningTrain()
 		{
-			SkrolToElement(XPathRw.CHOOSE_MORNING);
+			try { SkrolToElement(XPathRw.CHOOSE_MORNING); }
+			catch { CloseOnlineConsultant(); }
 		}
 
 		public void СhooseAfternoonTrain()
 		{
-			SkrolToElement(XPathRw.CHOOSE_AFTERNOON);
+			try { SkrolToElement(XPathRw.CHOOSE_AFTERNOON); }
+			catch { CloseOnlineConsultant(); }
 		}
 
 		public void СhooseEveningTrain()
 		{
-			SkrolToElement(XPathRw.CHOOSE_EVENING);
+			try { SkrolToElement(XPathRw.CHOOSE_EVENING); }
+			catch { CloseOnlineConsultant(); }
 		}
 
 		public void СhooseNightTrain()
 		{
-			SkrolToElement(XPathRw.CHOOSE_NIGHT);
+			try { SkrolToElement(XPathRw.CHOOSE_NIGHT); }
+			catch { CloseOnlineConsultant(); }
 		}
 	}
 }

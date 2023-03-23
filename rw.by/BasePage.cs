@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.WaitHelpers;
 
-
 namespace rw.by
 {
 	public abstract class BasePage
@@ -40,7 +39,8 @@ namespace rw.by
 
 		public void CloseOnlineConsultant()
 		{
-			_driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
+				//_driver.SwitchTo().Alert().Dismiss();
+				_driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
 		}
 
 	}
