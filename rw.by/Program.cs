@@ -11,17 +11,15 @@ namespace rw.by
 
 			HomePage home = new HomePage(driver);
 			home.InputDepartureStation("Минск");
-			home.InputDestinationStation("Брест");
-			home.ChooseDayCurrentMonth("28");
+			home.InputDestinationStation("Молодечно");
+			home.ChooseTomorrow();
+			//home.ChooseDayCurrentMonth("28");
 			//home.InputDateOfTravel("25.03.2023");
 			TrainsList listOfTrain =  home.СonfirmSelection();
 			Thread.Sleep(1000);
 			listOfTrain.СhooseEveningTrain();
-			listOfTrain.CloseOnlineConsultant();
 			driver.Close();
-			Console.WriteLine("END");
-
-
+			
 		}
 	}
 }

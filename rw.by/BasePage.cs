@@ -39,8 +39,7 @@ namespace rw.by
 
 		public void CloseOnlineConsultant()
 		{
-				//_driver.SwitchTo().Alert().Dismiss();
-				_driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
+			_driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
 		}
 
 	}
