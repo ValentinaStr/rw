@@ -7,29 +7,25 @@ namespace rw.by
 		public TrainsList(IWebDriver driver) : base(driver)
 		{
 		}
-		
+
 		public void СhooseMorningTrain()
 		{
-			try { SkrolToElement(XPathRw.CHOOSE_MORNING); }
-			catch { CloseOnlineConsultant(); }
+			SkrolToElement(XPathRw.CHOOSE_MORNING);
 		}
+
 		public void СhooseAfternoonTrain()
 		{
-			try { SkrolToElement(XPathRw.CHOOSE_AFTERNOON); }
-			catch { CloseOnlineConsultant(); }
+			SkrolToElement(XPathRw.CHOOSE_AFTERNOON);
 		}
 
 		public void СhooseEveningTrain()
 		{
-			try { SkrolToElement(XPathRw.CHOOSE_EVENING); }
-			catch { CloseOnlineConsultant(); }
+			SkrolToElement(XPathRw.CHOOSE_EVENING);
 		}
 
 		public void СhooseNightTrain()
 		{
-			try { SkrolToElement(XPathRw.CHOOSE_NIGHT); }
-			catch { CloseOnlineConsultant(); }
+			SkrolToElement(XPathRw.CHOOSE_NIGHT);
 		}
-
 	}
 }

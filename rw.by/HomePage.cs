@@ -40,7 +40,6 @@ namespace rw.by
 		public void ChooseTomorrow()
 		{
 			_driver.FindElement(By.XPath(XPathRw.CHOOSE_TOMORROW)).Click();
-
 		}
 
 		public void ChooseAllDays()
