@@ -15,7 +15,7 @@ namespace rw.by
 			home.ChooseTomorrow();
 			//home.ChooseDayCurrentMonth("28");
 			//home.InputDateOfTravel("25.03.2023");
-			TrainsListPage listOfTrain =  home.СonfirmSelection();
+			TrainsListPage listOfTrain =  home.СonfirmSelectionOpenListOfTrains();
 			listOfTrain.CHooseTrainWithAvailableSeats();
 			listOfTrain.CHooseTrainWithElectronicRegistration();
 			listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();

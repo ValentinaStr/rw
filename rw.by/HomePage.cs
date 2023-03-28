@@ -22,7 +22,7 @@ namespace rw.by
 			_driver.FindElement(By.XPath(XPathRw.INPUT_DATE_OF_TRAVEL)).SendKeys(dateOfTravel);
 			_driver.FindElement(By.XPath(XPathRw.INPUT_DATE_OF_TRAVEL)).SendKeys(Keys.Enter);
 		}
-		public TrainsListPage СonfirmSelection()
+		public TrainsListPage СonfirmSelectionOpenListOfTrains()
 		{
 			_driver.FindElement(By.XPath(XPathRw.CONFIRM_SELECTION)).Click();
 			return new TrainsListPage(_driver);
