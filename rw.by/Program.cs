@@ -15,9 +15,12 @@ namespace rw.by
 			home.ChooseTomorrow();
 			//home.ChooseDayCurrentMonth("28");
 			//home.InputDateOfTravel("25.03.2023");
-			TrainsList listOfTrain =  home.СonfirmSelection();
-			Thread.Sleep(1000);
+			TrainsListPage listOfTrain =  home.СonfirmSelection();
+			listOfTrain.CHooseTrainWithAvailableSeats();
+			listOfTrain.CHooseTrainWithElectronicRegistration();
+			listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();
 			listOfTrain.СhooseEveningTrain();
+			listOfTrain.PrintListOfTrains();
 			driver.Close();
 			
 		}

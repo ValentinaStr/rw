@@ -19,12 +19,13 @@ namespace rw.by
 			_action = new Actions(_driver);
 		}
 
-		public void GoToUrl(string url)
+		protected void GoToUrl(string url)
 		{
 			_driver.Url = url;
 			_driver.Manage().Window.Maximize();
 		}
-		 public void SkrolToElement(string xPath)
+
+		 protected void SkrolToElement(string xPath)
 		{
 			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
 			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
@@ -32,12 +33,12 @@ namespace rw.by
 			_driver.FindElement(By.XPath(xPath)).Click();
 		}
 
-		public IWebElement FindElementWhithWaiter(string xpath)
+		protected IWebElement FindElementWhithWaiter(string xpath)
 		{
 			return _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
 		}
 
-		public void CloseOnlineConsultant()
+		protected void CloseOnlineConsultant()
 		{
 			_driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
 		}
