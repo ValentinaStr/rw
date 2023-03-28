@@ -20,7 +20,7 @@ namespace rw.by
 			listOfTrain.CHooseTrainWithElectronicRegistration();
 			listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();
 			listOfTrain.СhooseEveningTrain();
-			listOfTrain.PrintListOfTrains();
+			listOfTrain.ConsoleWriteListOfTrains();
 			driver.Close();
 			
 		}

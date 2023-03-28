@@ -50,7 +50,7 @@ namespace rw.by
 			catch { CloseOnlineConsultant(); }
 		}
 
-		public void PrintListOfTrains()
+		public void ConsoleWriteListOfTrains()
 		{
 			Console.OutputEncoding = Encoding.UTF8;
 			ListOfTrain = FindElementWhithWaiter(XPathRw.LIST_OF_TRAINS);
