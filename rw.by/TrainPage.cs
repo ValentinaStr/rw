@@ -25,7 +25,6 @@ namespace rw.by
 
 		public void WriteFreeSeatsForTheSelectedCar(int number)
 		{
-			Thread.Sleep(1000);
 			List<IWebElement> listCars = FindElementsWhithWaiter(XPathRw.LIST_OF_CARS).ToList();
 			if (number < listCars.Count)
 			{
@@ -50,7 +49,6 @@ namespace rw.by
 
 		public void ChooseSeatBottom()
 		{
-			Thread.Sleep(3000);
 			SkrolToElement(XPathRw.FREE_SEAT_BOTTOM);
 			List<IWebElement> listSeats = FindElementsWhithWaiter(XPathRw.FREE_SEAT_BOTTOM).ToList();
 			try { listSeats[0].Click(); }
