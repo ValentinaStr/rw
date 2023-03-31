@@ -11,18 +11,33 @@ namespace rw.by
 
 			HomePage home = new HomePage(driver);
 			home.InputDepartureStation("Минск");
-			home.InputDestinationStation("Молодечно");
+			home.InputDestinationStation("Брест");
 			home.ChooseTomorrow();
 			//home.ChooseDayCurrentMonth("28");
-			//home.InputDateOfTravel("25.03.2023");
+			//home.InputDateOfTravel("16.04.2023");
 			TrainsListPage listOfTrain =  home.СonfirmSelectionOpenListOfTrains();
+
 			listOfTrain.CHooseTrainWithAvailableSeats();
-			listOfTrain.CHooseTrainWithElectronicRegistration();
-			listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();
-			listOfTrain.СhooseEveningTrain();
-			listOfTrain.ConsoleWriteListOfTrains();
-			driver.Close();
+			//listOfTrain.CHooseTrainWithElectronicRegistration();
+			//listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();
+
+			//listOfTrain.СhooseBusinesTrain();
+			listOfTrain.СhooseEconomyTrain();
+			listOfTrain.СhooseInternationalTrain();
+
+			//listOfTrain.СhooseEveningTrain();
+			//listOfTrain.СhooseMorningTrain();
+			//listOfTrain.СhooseAfternoonTrain();
+			//listOfTrain.СhooseNightTrain();
 			
+			TrainPage train = listOfTrain.OpenSelectedTrainToChooseTicket(1);
+
+			train.Choose2ClCar();
+
+			train.WriteFreeSeatsForTheSelectedCar(0);
+
+			driver.Close();
+
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.WaitHelpers;
+using System.Collections.ObjectModel;
 
 namespace rw.by
 {
@@ -25,17 +26,28 @@ namespace rw.by
 			_driver.Manage().Window.Maximize();
 		}
 
-		 protected void SkrolToElement(string xPath)
+		protected void SkrolToElementAndClick(string xPath)
 		{
 			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
 			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
 			_action.Perform();
 			_driver.FindElement(By.XPath(xPath)).Click();
 		}
+		protected void SkrolToElement(string xPath)
+		{
+			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
+			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
+			_action.Perform();
+		}
 
 		protected IWebElement FindElementWhithWaiter(string xpath)
 		{
 			return _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
+		}
+
+		protected  ReadOnlyCollection<IWebElement> FindElementsWhithWaiter(string xpath)
+		{
+			return _wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(xpath)));
 		}
 
 		protected void CloseOnlineConsultant()
