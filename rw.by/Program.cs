@@ -17,7 +17,7 @@ namespace rw.by
 			//home.InputDateOfTravel("16.04.2023");
 			TrainsListPage listOfTrain =  home.СonfirmSelectionOpenListOfTrains();
 
-			listOfTrain.CHooseTrainWithAvailableSeats();
+			listOfTrain.ChooseTrainWithAvailableSeats();
 			//listOfTrain.CHooseTrainWithElectronicRegistration();
 			//listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();
 

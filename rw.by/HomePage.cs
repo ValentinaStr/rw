@@ -22,16 +22,11 @@ namespace rw.by
 			_driver.FindElement(By.XPath(XPathRw.INPUT_DATE_OF_TRAVEL)).SendKeys(dateOfTravel);
 			_driver.FindElement(By.XPath(XPathRw.INPUT_DATE_OF_TRAVEL)).SendKeys(Keys.Enter);
 		}
-		public TrainsListPage СonfirmSelectionOpenListOfTrains()
-		{
-			_driver.FindElement(By.XPath(XPathRw.CONFIRM_SELECTION)).Click();
-			return new TrainsListPage(_driver);
-		}
+
 		public void OpenCalendar()
 		{
 			_driver.FindElement(By.XPath(XPathRw.CALENDAR)).Click();
 		}
-
 		public void ChooseToday()
 		{
 			_driver.FindElement(By.XPath(XPathRw.CHOOSE_TODAY)).Click();
@@ -52,17 +47,42 @@ namespace rw.by
 			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']")).Click(); }
 			catch (Exception) { Console.WriteLine("Wrong date"); }
 		}
+
 		public void ChooseDayNextMonth(string day)
 		{
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
 			catch (Exception) { Console.WriteLine("Wrong date"); }
 		}
+
 		public void ChooseDayNextAfterNextMonth(string day)
 		{
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
 			catch (Exception) { Console.WriteLine("Wrong date"); }
+		}
+
+		public TrainsListPage СonfirmSelectionOpenListOfTrains()
+		{
+			FindElementWhithWaiter(XPathRw.CONFIRM_SELECTION).Click();
+			return new TrainsListPage(_driver);
+		}
+
+		public OnlineSchedulePage OpenOnlineSchedule()
+		{
+			FindElementWhithWaiter(XPathRw.ONLINE_SCHEDULE).Click();
+			return new OnlineSchedulePage(_driver);
+		}
+
+		public TimetablePage OpenTimetable()
+		{
+			FindElementWhithWaiter(XPathRw.TIMETABLE).Click();
+			return new TimetablePage(_driver);
+		}
+		public SalesPointsPage OpenSalesPoints()
+		{
+			FindElementWhithWaiter(XPathRw.SALES_POINTS).Click();
+			return new SalesPointsPage(_driver);
 		}
 	}
 }

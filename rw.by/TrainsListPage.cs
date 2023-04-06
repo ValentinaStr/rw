@@ -12,41 +12,45 @@ namespace rw.by
 		{
 		}
 
-		public void CHooseTrainWithAvailableSeats()
+		public void ChooseTrainWithAvailableSeats()
 		{
 			try { FindElementWhithWaiter(XPathRw.CHOOSE_TRAIN_WITH_AVAIL_SEATS).Click(); }
 			catch { CloseOnlineConsultant(); }
 		}
-		public void CHooseTrainWithElectronicRegistration()
+		public void ChooseTrainWithElectronicRegistration()
 		{
 			FindElementWhithWaiter(XPathRw.CHOOSE_TRAIN_WITH_ELECTRONIC_REGISTRATION).Click();
 		}
-		public void CHooseTrainWithPlacesForWheelchairUsers()
+		public void ChooseTrainWithPlacesForWheelchairUsers()
 		{
 			FindElementWhithWaiter(XPathRw.CHOOSE_TRAIN_WITH_PLASE_FOR_WEELCHAIR_USERS).Click();
 		}
-
-		public void СhooseMorningTrain()
+		public void ChooseTrainByArrival()
 		{
-			try { SkrolToElementAndClick(XPathRw.CHOOSE_MORNING_TRAIN); }
+			FindElementWhithWaiter(XPathRw.CHOOSE_TRAIN_BY_ARRIVAL).Click();
+		}
+
+		public void ChooseMorningTrain()
+		{
+			try { SkrolToElementAndClick(XPathRw.CHOOSE_DEPARTURE_MORNING_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
 		public void СhooseAfternoonTrain()
 		{
-			try { SkrolToElementAndClick(XPathRw.CHOOSE_AFTERNOON_TRAIN); }
+			try { SkrolToElementAndClick(XPathRw.CHOOSE_DEPARTURE_AFTERNOON_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
 		public void СhooseEveningTrain()
 		{
-			try { SkrolToElementAndClick(XPathRw.CHOOSE_EVENING_TRAIN); }
+			try { SkrolToElementAndClick(XPathRw.CHOOSE_DEPARTURE_EVENING_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
 		public void СhooseNightTrain()
 		{
-			try { SkrolToElementAndClick(XPathRw.CHOOSE_NIGHT_TRAIN); }
+			try { SkrolToElementAndClick(XPathRw.CHOOSE_DEPARTURE_NIGHT_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 		public void СhooseInternationalTrain()

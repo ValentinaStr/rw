@@ -1,4 +1,6 @@
-﻿namespace rw.by
+﻿using System.Runtime.CompilerServices;
+
+namespace rw.by
 {
 	static class XPathRw
 	{
@@ -6,7 +8,11 @@
 		internal const string INPUT_DEPARTURE_STATION = "//input[@id='acFrom']";
 		internal const string INPUT_DESTINATION_STATION = "//input[@id='acTo']";
 		internal const string INPUT_DATE_OF_TRAVEL = "//input[@id='yDate']";
-		internal const string CONFIRM_SELECTION = "//input[@hidefocus='true']";
+		internal const string CONFIRM_SELECTION = "//span[@class='std-button']";
+		internal const string ONLINE_SCHEDULE = "//a[@class='head icon-4']";
+		internal const string TIMETABLE = "//a[@class='head icon-6']";
+		internal const string SALES_POINTS = "//a[@class='head icon-3']";
+
 
 		//CALENDAR
 		internal const string CALENDAR = "//a[@class='calendar']";
@@ -18,10 +24,15 @@
 		internal const string CHOOSE_ALL_DAY = "//a[@date-code='everyday']";
 
 		//TrainsListPage
-		internal const string CHOOSE_MORNING_TRAIN = "//span[@data-filter-value='from_morning']";
-		internal const string CHOOSE_AFTERNOON_TRAIN = "//span[@data-filter-value='from_aternoon']";
-		internal const string CHOOSE_EVENING_TRAIN = "//span[@data-filter-value='from_evening']";
-		internal const string CHOOSE_NIGHT_TRAIN = "//span[@data-filter-value='from_night']";
+		internal const string CHOOSE_TRAIN_BY_DEPARTURE = "//a[@href='#departure-tab']";
+		internal const string CHOOSE_DEPARTURE_MORNING_TRAIN = "//span[@data-filter-value='from_morning']";
+		internal const string CHOOSE_DEPARTURE_AFTERNOON_TRAIN = "//span[@data-filter-value='from_aternoon']";
+		internal const string CHOOSE_DEPARTURE_EVENING_TRAIN = "//span[@data-filter-value='from_evening']";
+		internal const string CHOOSE_DEPARTURE_NIGHT_TRAIN = "//span[@data-filter-value='from_night']";
+
+		internal const string CHOOSE_TRAIN_BY_ARRIVAL = "//a[@href='#arrival-tab']";
+
+
 		internal const string CHOOSE_TRAIN_WITH_AVAIL_SEATS = "//span[@data-filter-value='w_places']";
 		internal const string CHOOSE_TRAIN_WITH_ELECTRONIC_REGISTRATION = "//span[@data-filter-value='eregistration']";
 		internal const string CHOOSE_TRAIN_WITH_PLASE_FOR_WEELCHAIR_USERS = "//span[@data-filter-value='special']";
