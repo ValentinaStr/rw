@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using static rw.by.XPathRw;
 
 namespace rw.by
 {
@@ -11,77 +12,77 @@ namespace rw.by
 
 		public void InputDepartureStation(string nameStation)
 		{
-			_driver.FindElement(By.XPath(XPathRw.INPUT_DEPARTURE_STATION)).SendKeys(nameStation);
+			_driver.FindElement(By.XPath(INPUT_DEPARTURE_STATION)).SendKeys(nameStation);
 		}
 		public void InputDestinationStation(string nameStation)
 		{
-			_driver.FindElement(By.XPath(XPathRw.INPUT_DESTINATION_STATION)).SendKeys(nameStation);
+			_driver.FindElement(By.XPath(INPUT_DESTINATION_STATION)).SendKeys(nameStation);
 		}
 		public void InputDateOfTravel(string dateOfTravel)
 		{
-			_driver.FindElement(By.XPath(XPathRw.INPUT_DATE_OF_TRAVEL)).SendKeys(dateOfTravel);
-			_driver.FindElement(By.XPath(XPathRw.INPUT_DATE_OF_TRAVEL)).SendKeys(Keys.Enter);
+			_driver.FindElement(By.XPath(INPUT_DATE_OF_TRAVEL)).SendKeys(dateOfTravel);
+			_driver.FindElement(By.XPath(INPUT_DATE_OF_TRAVEL)).SendKeys(Keys.Enter);
 		}
 
 		public void OpenCalendar()
 		{
-			_driver.FindElement(By.XPath(XPathRw.CALENDAR)).Click();
+			_driver.FindElement(By.XPath(CALENDAR)).Click();
 		}
 		public void ChooseToday()
 		{
-			_driver.FindElement(By.XPath(XPathRw.CHOOSE_TODAY)).Click();
+			_driver.FindElement(By.XPath(CHOOSE_TODAY)).Click();
 		}
 
 		public void ChooseTomorrow()
 		{
-			_driver.FindElement(By.XPath(XPathRw.CHOOSE_TOMORROW)).Click();
+			_driver.FindElement(By.XPath(CHOOSE_TOMORROW)).Click();
 		}
 
 		public void ChooseAllDays()
 		{
-			_driver.FindElement(By.XPath(XPathRw.CHOOSE_ALL_DAY)).Click();
+			_driver.FindElement(By.XPath(CHOOSE_ALL_DAY)).Click();
 		}
 		public void ChooseDayCurrentMonth(string day)
 		{ 
 			OpenCalendar();
-			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']")).Click(); }
+			try { _driver.FindElement(By.XPath(CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']")).Click(); }
 			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
 		public void ChooseDayNextMonth(string day)
 		{
 			OpenCalendar();
-			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
+			try { _driver.FindElement(By.XPath(CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
 			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
 		public void ChooseDayNextAfterNextMonth(string day)
 		{
 			OpenCalendar();
-			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
+			try { _driver.FindElement(By.XPath(CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
 			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
 		public TrainsListPage СonfirmSelectionOpenListOfTrains()
 		{
-			FindElementWhithWaiter(XPathRw.CONFIRM_SELECTION).Click();
+			FindElementWhithWaiter(CONFIRM_SELECTION).Click();
 			return new TrainsListPage(_driver, _logger);
 		}
 
 		public OnlineSchedulePage OpenOnlineSchedule()
 		{
-			FindElementWhithWaiter(XPathRw.ONLINE_SCHEDULE).Click();
+			FindElementWhithWaiter(ONLINE_SCHEDULE).Click();
 			return new OnlineSchedulePage(_driver, _logger);
 		}
 
 		public TimetablePage OpenTimetable()
 		{
-			FindElementWhithWaiter(XPathRw.TIMETABLE).Click();
+			FindElementWhithWaiter(TIMETABLE).Click();
 			return new TimetablePage(_driver, _logger);
 		}
 		public SalesPointsPage OpenSalesPoints()
 		{
-			FindElementWhithWaiter(XPathRw.SALES_POINTS).Click();
+			FindElementWhithWaiter(SALES_POINTS).Click();
 			return new SalesPointsPage(_driver, _logger);
 		}
 	}
