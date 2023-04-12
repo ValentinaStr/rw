@@ -4,7 +4,7 @@ namespace rw.by
 {
 	public class OnlineSchedulePage : BasePage
 	{
-		public OnlineSchedulePage(IWebDriver driver) : base(driver)
+		public OnlineSchedulePage(IWebDriver driver, LoggerService logger) : base(driver, logger)
 		{
 		}
 	}

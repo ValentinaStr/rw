@@ -11,13 +11,15 @@ namespace rw.by
 		protected IWebDriver _driver;
 		protected WebDriverWait _wait;
 		protected Actions _action;
+		protected readonly LoggerService _logger;
 		const int WAITTIME = 30;
 
-		public BasePage(IWebDriver driver)
+		public BasePage(IWebDriver driver, LoggerService logger)
 		{
 			_driver = driver;
 			_wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(WAITTIME));
 			_action = new Actions(_driver);
+			_logger = logger;
 		}
 
 		protected void GoToUrl(string url)

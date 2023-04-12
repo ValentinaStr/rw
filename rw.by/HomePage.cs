@@ -4,7 +4,7 @@ namespace rw.by
 {
 	public class HomePage : BasePage
 	{
-		public HomePage(IWebDriver driver) : base(driver)
+		public HomePage(IWebDriver driver, LoggerService logger) : base(driver, logger)
 		{
 			GoToUrl("https://www.rw.by/");
 		}
@@ -45,44 +45,44 @@ namespace rw.by
 		{ 
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']")).Click(); }
-			catch (Exception) { Console.WriteLine("Wrong date"); }
+			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
 		public void ChooseDayNextMonth(string day)
 		{
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
-			catch (Exception) { Console.WriteLine("Wrong date"); }
+			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
 		public void ChooseDayNextAfterNextMonth(string day)
 		{
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(XPathRw.CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
-			catch (Exception) { Console.WriteLine("Wrong date"); }
+			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
 		public TrainsListPage СonfirmSelectionOpenListOfTrains()
 		{
 			FindElementWhithWaiter(XPathRw.CONFIRM_SELECTION).Click();
-			return new TrainsListPage(_driver);
+			return new TrainsListPage(_driver, _logger);
 		}
 
 		public OnlineSchedulePage OpenOnlineSchedule()
 		{
 			FindElementWhithWaiter(XPathRw.ONLINE_SCHEDULE).Click();
-			return new OnlineSchedulePage(_driver);
+			return new OnlineSchedulePage(_driver, _logger);
 		}
 
 		public TimetablePage OpenTimetable()
 		{
 			FindElementWhithWaiter(XPathRw.TIMETABLE).Click();
-			return new TimetablePage(_driver);
+			return new TimetablePage(_driver, _logger);
 		}
 		public SalesPointsPage OpenSalesPoints()
 		{
 			FindElementWhithWaiter(XPathRw.SALES_POINTS).Click();
-			return new SalesPointsPage(_driver);
+			return new SalesPointsPage(_driver, _logger);
 		}
 	}
 }

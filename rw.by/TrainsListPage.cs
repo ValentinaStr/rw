@@ -8,7 +8,7 @@ namespace rw.by
 		
 		public IWebElement ListOfTrain { get; private set; }
 
-		public TrainsListPage(IWebDriver driver) : base(driver)
+		public TrainsListPage(IWebDriver driver, LoggerService logger) : base(driver, logger)
 		{
 		}
 
@@ -82,8 +82,8 @@ namespace rw.by
 			
 			List<IWebElement> listSelectedTrain = _driver.FindElements(By.XPath(XPathRw.OPEN_SELECTED_TRAIN)).ToList();
 			try	{ listSelectedTrain[numberTrain].Click(); }
-			catch { Console.WriteLine("Your route could not be found for your parameters"); }
-			return new TrainPage(_driver);
+			catch {_ =  _logger.WriteLog("Your route could not be found for your parameters"); }
+			return new TrainPage(_driver, _logger);
 		}
 
 		public void ResetFilters()

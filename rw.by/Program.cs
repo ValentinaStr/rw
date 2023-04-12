@@ -8,27 +8,18 @@ namespace rw.by
 		static void Main(string[] args)
 		{
 			WebDriver driver = new ChromeDriver();
+			LoggerService logger = new LoggerService();
 
-			HomePage home = new HomePage(driver);
+			HomePage home = new HomePage(driver,logger);
 			home.InputDepartureStation("Минск");
 			home.InputDestinationStation("Брест");
-			home.ChooseTomorrow();
-			//home.ChooseDayCurrentMonth("28");
-			//home.InputDateOfTravel("16.04.2023");
+			home.ChooseTomorrow();	
 			TrainsListPage listOfTrain =  home.СonfirmSelectionOpenListOfTrains();
 
 			listOfTrain.ChooseTrainWithAvailableSeats();
-			//listOfTrain.CHooseTrainWithElectronicRegistration();
-			//listOfTrain.CHooseTrainWithPlacesForWheelchairUsers();
-
-			//listOfTrain.СhooseBusinesTrain();
+			
 			listOfTrain.СhooseEconomyTrain();
 			listOfTrain.СhooseInternationalTrain();
-
-			//listOfTrain.СhooseEveningTrain();
-			//listOfTrain.СhooseMorningTrain();
-			//listOfTrain.СhooseAfternoonTrain();
-			//listOfTrain.СhooseNightTrain();
 			
 			TrainPage train = listOfTrain.OpenSelectedTrainToChooseTicket(1);
 

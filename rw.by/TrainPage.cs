@@ -5,7 +5,7 @@ namespace rw.by
 {
 	public class TrainPage : BasePage
 	{
-		public TrainPage(IWebDriver driver) : base(driver)
+		public TrainPage(IWebDriver driver, LoggerService logger) : base(driver, logger)
 		{
 
 		}
@@ -28,11 +28,11 @@ namespace rw.by
 			if (number < listCars.Count)
 			{
 				Console.OutputEncoding = Encoding.UTF8;
-				Console.WriteLine(listCars[number].Text);
+				_ = _logger.WriteLog(listCars[number].Text);
 			}
 			else
 			{
-				Console.WriteLine("Your car could not be found for your parameters") ;
+				_ = _logger.WriteLog("Your car could not be found for your parameters");
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace rw.by
 			SkrolToElement(XPathRw.FREE_SEAT_BOTTOM);
 			List<IWebElement> listSeats = FindElementsWhithWaiter(XPathRw.FREE_SEAT_BOTTOM).ToList();
 			try { listSeats[0].Click(); }
-			catch { Console.WriteLine("Your seat could not be found for your parameters"); }
+			catch { _ = _logger.WriteLog("Your seat could not be found for your parameters"); }
 		}
 
 		public void ChooseSeatTop()
@@ -60,7 +60,7 @@ namespace rw.by
 			SkrolToElement(XPathRw.FREE_SEAT_TOP);
 			List<IWebElement> listSeats = FindElementsWhithWaiter(XPathRw.FREE_SEAT_TOP).ToList();
 			try { listSeats[0].Click(); }
-			catch { Console.WriteLine("Your seat could not be found for your parameters"); }
+			catch { _ = _logger.WriteLog("Your seat could not be found for your parameters"); }
 		}
 
 		public void ClickButtonInputDataOfPassager()

@@ -4,7 +4,7 @@ namespace rw.by
 {
 	public class SalesPointsPage : BasePage
 	{
-		public SalesPointsPage(IWebDriver driver) : base(driver)
+		public SalesPointsPage(IWebDriver driver, LoggerService logger) : base(driver, logger)
 		{
 
 		}
