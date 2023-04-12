@@ -83,7 +83,7 @@ namespace rw.by
 			
 			List<IWebElement> listSelectedTrain = _driver.FindElements(By.XPath(OPEN_SELECTED_TRAIN)).ToList();
 			try	{ listSelectedTrain[numberTrain].Click(); }
-			catch {_ =  _logger.WriteLog("Your route could not be found for your parameters"); }
+			catch {_ =  _logger.WriteLogAsync("Your route could not be found for your parameters"); }
 			return new TrainPage(_driver, _logger);
 		}
 

@@ -29,11 +29,11 @@ namespace rw.by
 			if (number < listCars.Count)
 			{
 				Console.OutputEncoding = Encoding.UTF8;
-				_ = _logger.WriteLog(listCars[number].Text);
+				_ = _logger.WriteLogAsync(listCars[number].Text);
 			}
 			else
 			{
-				_ = _logger.WriteLog("Your car could not be found for your parameters");
+				_ = _logger.WriteLogAsync("Your car could not be found for your parameters");
 			}
 		}
 
@@ -52,7 +52,7 @@ namespace rw.by
 			ScrollToElement(FREE_SEAT_BOTTOM);
 			List<IWebElement> listSeats = FindElementsWithWaiter(FREE_SEAT_BOTTOM).ToList();
 			try { listSeats[0].Click(); }
-			catch { _ = _logger.WriteLog("Your seat could not be found for your parameters"); }
+			catch { _ = _logger.WriteLogAsync("Your seat could not be found for your parameters"); }
 		}
 
 		public void ChooseSeatTop()
@@ -61,7 +61,7 @@ namespace rw.by
 			ScrollToElement(FREE_SEAT_TOP);
 			List<IWebElement> listSeats = FindElementsWithWaiter(FREE_SEAT_TOP).ToList();
 			try { listSeats[0].Click(); }
-			catch { _ = _logger.WriteLog("Your seat could not be found for your parameters"); }
+			catch { _ = _logger.WriteLogAsync("Your seat could not be found for your parameters"); }
 		}
 
 		public void ClickButtonInputDataOfPassager()

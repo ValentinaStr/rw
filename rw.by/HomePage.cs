@@ -46,21 +46,21 @@ namespace rw.by
 		{ 
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']")).Click(); }
-			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
+			catch (Exception) { _ = _logger.WriteLogAsync("Wrong date"); }
 		}
 
 		public void ChooseDayNextMonth(string day)
 		{
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
-			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
+			catch (Exception) { _ = _logger.WriteLogAsync("Wrong date"); }
 		}
 
 		public void ChooseDayNextAfterNextMonth(string day)
 		{
 			OpenCalendar();
 			try { _driver.FindElement(By.XPath(CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
-			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
+			catch (Exception) { _ = _logger.WriteLogAsync("Wrong date"); }
 		}
 
 		public TrainsListPage ConfirmSelectionOpenListOfTrains()
