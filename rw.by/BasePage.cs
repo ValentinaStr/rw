@@ -28,26 +28,26 @@ namespace rw.by
 			_driver.Manage().Window.Maximize();
 		}
 
-		protected void SkrolToElementAndClick(string xPath)
+		protected void ScrollToElementAndClick(string xPath)
 		{
 			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
 			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
 			_action.Perform();
 			_driver.FindElement(By.XPath(xPath)).Click();
 		}
-		protected void SkrolToElement(string xPath)
+		protected void ScrollToElement(string xPath)
 		{
 			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
 			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
 			_action.Perform();
 		}
 
-		protected IWebElement FindElementWhithWaiter(string xpath)
+		protected IWebElement FindElementWithWaiter(string xpath)
 		{
 			return _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
 		}
 
-		protected  ReadOnlyCollection<IWebElement> FindElementsWhithWaiter(string xpath)
+		protected  ReadOnlyCollection<IWebElement> FindElementsWithWaiter(string xpath)
 		{
 			return _wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(xpath)));
 		}

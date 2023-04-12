@@ -1,6 +1,6 @@
 ﻿namespace rw.by
 {
-	static class XPathRw
+	internal static class XPathRw
 	{
 		//HomePage 
 		internal const string INPUT_DEPARTURE_STATION = "//input[@id='acFrom']",

@@ -15,66 +15,66 @@ namespace rw.by
 
 		public void ChooseTrainWithAvailableSeats()
 		{
-			try { FindElementWhithWaiter(CHOOSE_TRAIN_WITH_AVAIL_SEATS).Click(); }
+			try { FindElementWithWaiter(CHOOSE_TRAIN_WITH_AVAIL_SEATS).Click(); }
 			catch { CloseOnlineConsultant(); }
 		}
 		public void ChooseTrainWithElectronicRegistration()
 		{
-			FindElementWhithWaiter(CHOOSE_TRAIN_WITH_ELECTRONIC_REGISTRATION).Click();
+			FindElementWithWaiter(CHOOSE_TRAIN_WITH_ELECTRONIC_REGISTRATION).Click();
 		}
 		public void ChooseTrainWithPlacesForWheelchairUsers()
 		{
-			FindElementWhithWaiter(CHOOSE_TRAIN_WITH_PLASE_FOR_WEELCHAIR_USERS).Click();
+			FindElementWithWaiter(CHOOSE_TRAIN_WITH_PLASE_FOR_WEELCHAIR_USERS).Click();
 		}
 		public void ChooseTrainByArrival()
 		{
-			FindElementWhithWaiter(CHOOSE_TRAIN_BY_ARRIVAL).Click();
+			FindElementWithWaiter(CHOOSE_TRAIN_BY_ARRIVAL).Click();
 		}
 
 		public void ChooseMorningTrain()
 		{
-			try { SkrolToElementAndClick(CHOOSE_DEPARTURE_MORNING_TRAIN); }
+			try { ScrollToElementAndClick(CHOOSE_DEPARTURE_MORNING_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
-		public void СhooseAfternoonTrain()
+		public void ChooseAfternoonTrain()
 		{
-			try { SkrolToElementAndClick(CHOOSE_DEPARTURE_AFTERNOON_TRAIN); }
+			try { ScrollToElementAndClick(CHOOSE_DEPARTURE_AFTERNOON_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
-		public void СhooseEveningTrain()
+		public void ChooseEveningTrain()
 		{
-			try { SkrolToElementAndClick(CHOOSE_DEPARTURE_EVENING_TRAIN); }
+			try { ScrollToElementAndClick(CHOOSE_DEPARTURE_EVENING_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
-		public void СhooseNightTrain()
+		public void ChooseNightTrain()
 		{
-			try { SkrolToElementAndClick(CHOOSE_DEPARTURE_NIGHT_TRAIN); }
+			try { ScrollToElementAndClick(CHOOSE_DEPARTURE_NIGHT_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
-		public void СhooseInternationalTrain()
+		public void ChooseInternationalTrain()
 		{
-			try { SkrolToElementAndClick(CHOOSE_INTERNATIONAL_TRAIN); }
-			catch { CloseOnlineConsultant(); }
-		}
-
-		public void СhooseBusinesTrain()
-		{
-			try { SkrolToElementAndClick(CHOOSE_INTERREGIONAL_BUSINESS_TRAIN); }
+			try { ScrollToElementAndClick(CHOOSE_INTERNATIONAL_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 
-		public void СhooseEconomyTrain()
+		public void ChooseBusinessTrain()
 		{
-			try { SkrolToElementAndClick(CHOOSE_INTERREGIONAL_ECONOMY_TRAIN); }
+			try { ScrollToElementAndClick(CHOOSE_INTERREGIONAL_BUSINESS_TRAIN); }
+			catch { CloseOnlineConsultant(); }
+		}
+
+		public void ChooseEconomyTrain()
+		{
+			try { ScrollToElementAndClick(CHOOSE_INTERREGIONAL_ECONOMY_TRAIN); }
 			catch { CloseOnlineConsultant(); }
 		}
 		public void ConsoleWriteListOfTrains()
 		{
 			Console.OutputEncoding = Encoding.UTF8;
-			ListOfTrain = FindElementWhithWaiter(LIST_OF_TRAINS);
+			ListOfTrain = FindElementWithWaiter(LIST_OF_TRAINS);
 			Console.WriteLine(ListOfTrain.Text);
 		}
 
@@ -89,7 +89,7 @@ namespace rw.by
 
 		public void ResetFilters()
 		{
-			SkrolToElementAndClick(RESET_FILTERS);
+			ScrollToElementAndClick(RESET_FILTERS);
 		}
 	}	
 }

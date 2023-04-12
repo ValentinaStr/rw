@@ -63,26 +63,26 @@ namespace rw.by
 			catch (Exception) { _ = _logger.WriteLog("Wrong date"); }
 		}
 
-		public TrainsListPage СonfirmSelectionOpenListOfTrains()
+		public TrainsListPage ConfirmSelectionOpenListOfTrains()
 		{
-			FindElementWhithWaiter(CONFIRM_SELECTION).Click();
+			FindElementWithWaiter(CONFIRM_SELECTION).Click();
 			return new TrainsListPage(_driver, _logger);
 		}
 
 		public OnlineSchedulePage OpenOnlineSchedule()
 		{
-			FindElementWhithWaiter(ONLINE_SCHEDULE).Click();
+			FindElementWithWaiter(ONLINE_SCHEDULE).Click();
 			return new OnlineSchedulePage(_driver, _logger);
 		}
 
 		public TimetablePage OpenTimetable()
 		{
-			FindElementWhithWaiter(TIMETABLE).Click();
+			FindElementWithWaiter(TIMETABLE).Click();
 			return new TimetablePage(_driver, _logger);
 		}
 		public SalesPointsPage OpenSalesPoints()
 		{
-			FindElementWhithWaiter(SALES_POINTS).Click();
+			FindElementWithWaiter(SALES_POINTS).Click();
 			return new SalesPointsPage(_driver, _logger);
 		}
 	}

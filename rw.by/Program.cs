@@ -14,12 +14,12 @@ namespace rw.by
 			home.InputDepartureStation("Минск");
 			home.InputDestinationStation("Брест");
 			home.ChooseTomorrow();	
-			TrainsListPage listOfTrain =  home.СonfirmSelectionOpenListOfTrains();
+			TrainsListPage listOfTrain =  home.ConfirmSelectionOpenListOfTrains();
 
 			listOfTrain.ChooseTrainWithAvailableSeats();
 			
-			listOfTrain.СhooseEconomyTrain();
-			listOfTrain.СhooseInternationalTrain();
+			listOfTrain.ChooseEconomyTrain();
+			listOfTrain.ChooseInternationalTrain();
 			
 			TrainPage train = listOfTrain.OpenSelectedTrainToChooseTicket(1);
 
