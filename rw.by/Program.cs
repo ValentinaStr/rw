@@ -8,7 +8,7 @@ namespace rw.by
 		static void Main(string[] args)
 		{
 			WebDriver driver = new ChromeDriver();
-			LoggerService logger = new LoggerService();
+			LoggerService logger = LoggerService.GetLogger();
 
 			HomePage home = new HomePage(driver,logger);
 			home.InputDepartureStation("Минск");
