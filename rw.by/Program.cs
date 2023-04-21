@@ -11,10 +11,11 @@ namespace rw.by
 			LoggerService logger = LoggerService.GetLogger();
 
 			HomePage home = new HomePage(driver,logger);
-			home.InputDepartureStation("Минск");
+			home.InputDepartureStation("Минск-Пассажирский");
 			home.InputDestinationStation("Брест");
 			home.ChooseTomorrow();	
 			TrainsListPage listOfTrain =  home.ConfirmSelectionOpenListOfTrains();
+			Thread.Sleep(10000);
 
 			listOfTrain.ChooseTrainWithAvailableSeats();
 			

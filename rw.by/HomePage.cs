@@ -12,54 +12,54 @@ namespace rw.by
 
 		public void InputDepartureStation(string nameStation)
 		{
-			_driver.FindElement(By.XPath(INPUT_DEPARTURE_STATION)).SendKeys(nameStation);
+			FindElementWithWaiter(INPUT_DEPARTURE_STATION).SendKeys(nameStation);
 		}
 		public void InputDestinationStation(string nameStation)
 		{
-			_driver.FindElement(By.XPath(INPUT_DESTINATION_STATION)).SendKeys(nameStation);
+			FindElementWithWaiter(INPUT_DESTINATION_STATION).SendKeys(nameStation);
 		}
 		public void InputDateOfTravel(string dateOfTravel)
 		{
-			_driver.FindElement(By.XPath(INPUT_DATE_OF_TRAVEL)).SendKeys(dateOfTravel);
-			_driver.FindElement(By.XPath(INPUT_DATE_OF_TRAVEL)).SendKeys(Keys.Enter);
+			FindElementWithWaiter(INPUT_DATE_OF_TRAVEL).SendKeys(dateOfTravel);
+			FindElementWithWaiter(INPUT_DATE_OF_TRAVEL).SendKeys(Keys.Enter);
 		}
 
 		public void OpenCalendar()
 		{
-			_driver.FindElement(By.XPath(CALENDAR)).Click();
+			FindElementWithWaiter(CALENDAR).Click();
 		}
 		public void ChooseToday()
 		{
-			_driver.FindElement(By.XPath(CHOOSE_TODAY)).Click();
+			FindElementWithWaiter(CHOOSE_TODAY).Click();
 		}
 
 		public void ChooseTomorrow()
 		{
-			_driver.FindElement(By.XPath(CHOOSE_TOMORROW)).Click();
+			FindElementWithWaiter(CHOOSE_TOMORROW).Click();
 		}
 
 		public void ChooseAllDays()
 		{
-			_driver.FindElement(By.XPath(CHOOSE_ALL_DAY)).Click();
+			FindElementWithWaiter(CHOOSE_ALL_DAY).Click();
 		}
 		public void ChooseDayCurrentMonth(string day)
 		{ 
 			OpenCalendar();
-			try { _driver.FindElement(By.XPath(CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']")).Click(); }
+			try { FindElementWithWaiter(CHOOSE_CURRENT_MONTH + "//a[text()='" + day + "']").Click(); }
 			catch (Exception) { _ = _logger.WriteLogAsync("Wrong date"); }
 		}
 
 		public void ChooseDayNextMonth(string day)
 		{
 			OpenCalendar();
-			try { _driver.FindElement(By.XPath(CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
+			try { FindElementWithWaiter(CHOOSE_NEXT_MONTH + "//a[text()='" + day + "']").Click(); }
 			catch (Exception) { _ = _logger.WriteLogAsync("Wrong date"); }
 		}
 
 		public void ChooseDayNextAfterNextMonth(string day)
 		{
 			OpenCalendar();
-			try { _driver.FindElement(By.XPath(CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']")).Click(); }
+			try { FindElementWithWaiter(CHOOSE_NEXT_AFTER_NEXT_MONTH + "//a[text()='" + day + "']").Click(); }
 			catch (Exception) { _ = _logger.WriteLogAsync("Wrong date"); }
 		}
 
