@@ -4,12 +4,12 @@ using static rw.by.XPathRw;
 
 namespace rw.by
 {
-	public class TrainsListPage : BasePage
+	internal class TrainsListPage : BasePage
 	{
 		
 		public IWebElement ListOfTrain { get; private set; }
 
-		public TrainsListPage(IWebDriver driver, LoggerService logger) : base(driver, logger)
+		public TrainsListPage() : base()
 		{
 		}
 
@@ -81,10 +81,10 @@ namespace rw.by
 		public TrainPage OpenSelectedTrainToChooseTicket(int numberTrain)
 		{
 			
-			List<IWebElement> listSelectedTrain = _driver.FindElements(By.XPath(OPEN_SELECTED_TRAIN)).ToList();
+			List<IWebElement> listSelectedTrain = FindElementsWithWaiter(OPEN_SELECTED_TRAIN).ToList();
 			try	{ listSelectedTrain[numberTrain].Click(); }
-			catch {_ =  _logger.WriteLogAsync("Your route could not be found for your parameters"); }
-			return new TrainPage(_driver, _logger);
+			catch {LogMessage("Your route could not be found for your parameters"); }
+			return new TrainPage();
 		}
 
 		public void ResetFilters()

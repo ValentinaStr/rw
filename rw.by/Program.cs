@@ -7,16 +7,12 @@ namespace rw.by
 	{
 		static void Main(string[] args)
 		{
-			WebDriver driver = new ChromeDriver();
-			LoggerService logger = LoggerService.GetLogger();
-
-			HomePage home = new HomePage(driver,logger);
+			HomePage home = new HomePage();
 			home.InputDepartureStation("Минск-Пассажирский");
 			home.InputDestinationStation("Брест");
 			home.ChooseTomorrow();	
 			TrainsListPage listOfTrain =  home.ConfirmSelectionOpenListOfTrains();
-			Thread.Sleep(10000);
-
+			
 			listOfTrain.ChooseTrainWithAvailableSeats();
 			
 			listOfTrain.ChooseEconomyTrain();
@@ -26,9 +22,9 @@ namespace rw.by
 
 			train.Choose2ClCar();
 
-			train.WriteFreeSeatsForTheSelectedCar(0);
+			train.WriteFreeSeatsForTheSelectedCar(1);
 
-			driver.Close();
+			home.CloseDriver();
 
 		}
 	}

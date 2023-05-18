@@ -6,55 +6,57 @@ using System.Collections.ObjectModel;
 
 namespace rw.by
 {
-	public abstract class BasePage
+	internal abstract class BasePage
 	{
-		protected IWebDriver _driver;
-		protected WebDriverWait _wait;
-		protected Actions _action;
-		protected readonly LoggerService _logger;
-		const int WAITTIME = 30;
-
-		public BasePage(IWebDriver driver, LoggerService logger)
+		public DriverCreation _driverCreation;
+		public BasePage()
 		{
-			_driver = driver;
-			_wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(WAITTIME));
-			_action = new Actions(_driver);
-			_logger = logger;
+			_driverCreation = DriverCreation.GetDriverAction();
 		}
 
 		protected void GoToUrl(string url)
 		{
-			_driver.Url = url;
-			_driver.Manage().Window.Maximize();
+			_driverCreation._driver.Url = url;
+			_driverCreation._driver.Manage().Window.Maximize();
 		}
 
 		protected void ScrollToElementAndClick(string xPath)
 		{
-			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
-			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
-			_action.Perform();
-			_driver.FindElement(By.XPath(xPath)).Click();
+			_driverCreation._wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
+			_driverCreation._action.MoveToElement(_driverCreation._driver.FindElement(By.XPath(xPath)));
+			_driverCreation._action.Perform();
+			_driverCreation._driver.FindElement(By.XPath(xPath)).Click();
 		}
 		protected void ScrollToElement(string xPath)
 		{
-			_wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
-			_action.MoveToElement(_driver.FindElement(By.XPath(xPath)));
-			_action.Perform();
+			_driverCreation._wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
+			_driverCreation._action.MoveToElement(_driverCreation._driver.FindElement(By.XPath(xPath)));
+			_driverCreation._action.Perform();
 		}
 
 		protected IWebElement FindElementWithWaiter(string xpath)
 		{
-			return _wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
+			return _driverCreation._wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xpath)));
 		}
 
 		protected  ReadOnlyCollection<IWebElement> FindElementsWithWaiter(string xpath)
 		{
-			return _wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(xpath)));
+			return _driverCreation._wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath(xpath)));
 		}
 
 		protected void CloseOnlineConsultant()
 		{
-			_driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
+			_driverCreation._driver.FindElement(By.XPath(XPathRw.CLOSE_ONLINE_CONSULTANT)).Click();
+		}
+
+		protected void LogMessage ( string message)
+		{
+			_driverCreation._logger.WriteLogAsync(message);
+		}
+
+		internal void CloseDriver()
+		{
+			_driverCreation._driver.Close();
 		}
 
 	}

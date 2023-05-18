@@ -2,9 +2,9 @@
 
 namespace rw.by
 {
-	public class TimetablePage : BasePage
+	internal class TimetablePage : BasePage
 	{
-		public TimetablePage(IWebDriver driver, LoggerService logger) : base(driver, logger)
+		public TimetablePage() : base()
 		{
 		}
 	}

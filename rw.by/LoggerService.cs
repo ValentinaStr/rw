@@ -5,7 +5,10 @@
 		private static LoggerService? _instance;
 		private const string PATH = @"D:\projects\dotnet\New folder (2)\ValentinaStr\rw\MyLog.txt";
 
-		private LoggerService() { }
+		private LoggerService()
+		{
+			//File.WriteAllText(PATH, string.Empty);
+		}
 		public static LoggerService GetLogger()
 		{
 			_instance ??= new LoggerService();
